@@ -4,10 +4,14 @@ import csv
 
 votes = []
 candidates = []
+can_votes = []
 khan = 0
 correy = 0
 li = 0
 otooley = 0
+# winner = []
+
+# all_info = ["Khan", khan, "Correy", correy, "Li", li, "O'Tooley", otooley]
 
 pypoll_csv = os.path.join('Resources', 'election_data.csv')
 
@@ -38,24 +42,25 @@ with open(pypoll_csv) as csvfile:
             otooley_perc = '{:.3f}'.format((otooley/len(votes))*100)
         # total number of votes
         total_votes = len(votes)
-        # winner of election based on popular vote
-        winner = max(set(candidates), key = candidates.count)
-    
-    # print(khan_perc)
-    # print(len(votes))
-    # print(winner)
-    print(candidates)
-    # print(correy)
-    # print(li)
-    # print(otooley)
-    # print(f"""
-    # ELection Results
-    # -------------------------
-    # Total Votes: {total_votes}
-    # -------------------------
-    # Khan: {khan_perc}% ({khan})
-    # Correy: {correy_perc}% ({correy})
-    # Li: {li_perc}% ({li})
-    # O'Tooley: {otooley_perc}% ({otooley})
-    # -------------------------
-    # Winner: {winner}""")
+        can_votes = [khan, correy, li, otooley]
+        # can_position = candidates.idex("Khan")
+        if khan >= max(can_votes):
+            winner = "Khan"
+        if correy >= max(can_votes):
+            winner = "Correy"
+        if li >= max(can_votes):
+            winner = "Li"
+        if otooley >= max(can_votes):
+            winner = "O'Tooley"
+
+    print(f"""
+    ELection Results
+    -------------------------
+    Total Votes: {total_votes}
+    -------------------------
+    {candidates[0]}: {khan_perc}% ({khan})
+    {candidates[1]}: {correy_perc}% ({correy})
+    {candidates[2]}: {li_perc}% ({li})
+    {candidates[3]}: {otooley_perc}% ({otooley})
+    -------------------------
+    Winner: {winner}""")

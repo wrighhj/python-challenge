@@ -38,11 +38,6 @@ with open(pybank_csv) as csvfile:
         total_profit_difference += profit_difference
         average_change = total_profit_difference / 85
 
-    # print(total_profit_difference)
-    # print(average_change)
-    # print(max_profit)
-    # print(min_profit)
-
 final_pybank = os.path.join("Analysis", "pybank_table")
 
 with open(final_pybank, "w") as datafile:
