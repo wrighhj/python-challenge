@@ -9,9 +9,6 @@ khan = 0
 correy = 0
 li = 0
 otooley = 0
-# winner = []
-
-# all_info = ["Khan", khan, "Correy", correy, "Li", li, "O'Tooley", otooley]
 
 pypoll_csv = os.path.join('Resources', 'election_data.csv')
 
